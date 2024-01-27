@@ -12,7 +12,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            background-color: #f0f0f0; /* Light gray background */
+            background-color: #a9a9a9; /* Light gray background */
         }
 
         h1 {
@@ -128,9 +128,7 @@
             background-color: #007B9D;
         }
 
-        #table-container {
-            margin-bottom: 20px;
-        }
+       
 
        
     </style>
@@ -302,7 +300,7 @@ function updateBarChartPFF(data) {
     const ctx = barChartCanvas.getContext('2d');
 
     const chartData = {
-        labels: ['Grade vs man', 'CC %', 'PFF'],
+        labels: ['Grade vs man', 'Contested Catch %', 'PFF Grade'],
         datasets: [{
             label: 'Percentiles',
             data: [
@@ -467,7 +465,7 @@ function displayTable(data) {
     const ctx = barChartCanvas.getContext('2d');
 
     const chartData = {
-        labels: ['Drop %', 'YAC per Catch', 'ADOT', 'Touches per Tackles Missed'],
+        labels: ['Catch %', 'YAC per Catch', 'ADOT', 'Touches per Tackles Missed'],
         datasets: [{
             label: 'Catching Percentiles',
             data: [
