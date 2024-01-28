@@ -374,7 +374,6 @@ function updateInfoBox(playerData) {
 infoColumns.forEach(column => {
     let columnName;
 
-    // Set the appropriate display name for each column
     switch (column) {
         case 'name':
             columnName = 'Name';
@@ -412,11 +411,6 @@ infoColumns.forEach(column => {
     infoBox.innerHTML += `<li><strong>${columnName}:</strong> ${value}</li>`;
 });
 
-
-
-
-            
-                infoBox.innerHTML += '</ul>';
 
     // Display the image box
                 imageBox.style.display = 'block';
