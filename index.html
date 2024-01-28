@@ -12,7 +12,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            background-color: #a9a9a9; /* Light gray background */
+            background-color: #e7e7e7; /* Light gray background */
         }
 
         h1 {
@@ -128,7 +128,9 @@
             background-color: #007B9D;
         }
 
-       
+        #table-container {
+            margin-bottom: 20px;
+        }
 
        
     </style>
@@ -177,7 +179,7 @@
     </div>
     <div>
         <h3>Statistical Percentiles</h3>
-        <canvas id="barChartOpenCatchProb"></canvas>
+        <canvas id="barChartOpenCatchProb" width="1000" height ="400"></canvas>
     </div>
 
     <div>
@@ -300,7 +302,7 @@ function updateBarChartPFF(data) {
     const ctx = barChartCanvas.getContext('2d');
 
     const chartData = {
-        labels: ['Grade vs man', 'Contested Catch %', 'PFF Grade'],
+        labels: ['Grade vs man', 'CC %', 'PFF'],
         datasets: [{
             label: 'Percentiles',
             data: [
@@ -465,7 +467,7 @@ function displayTable(data) {
     const ctx = barChartCanvas.getContext('2d');
 
     const chartData = {
-        labels: ['Catch %', 'YAC per Catch', 'ADOT', 'Touches per Tackles Missed'],
+        labels: ['Drop %', 'YAC per Catch', 'ADOT', 'Touches per Tackles Missed'],
         datasets: [{
             label: 'Catching Percentiles',
             data: [
@@ -835,13 +837,14 @@ function updateBarChartOpenCatchProb(data) {
     const ctx = barChartCanvas.getContext('2d');
 
     const chartData = {
-        labels: ['Open', 'Catch', 'YAC', 'YPRR', 'TPRR'], // Include 'YPRR Percentile' and 'TPRR Percentile' labels
+        labels: ['Open', 'Catch', 'YAC','Composite Percentile', 'YPRR', 'TPRR'], // Include 'YPRR Percentile' and 'TPRR Percentile' labels
         datasets: [{
             label: 'Percentile',
             data: [
                 parseFloat(data[0]['open_p']),
                 parseFloat(data[0]['catch_p']),
                 parseFloat(data[0]['yac_p']),
+                parseFloat(data[0]['compp']),
                 parseFloat(data[0]['yprr_p']), // Include 'yprr_p' value
                 parseFloat(data[0]['tprr_p']) // Include 'tprr_p' value
             ],
@@ -849,12 +852,14 @@ function updateBarChartOpenCatchProb(data) {
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
+                'rgba(25, 26, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(153, 102, 255, 0.2)'
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)'
