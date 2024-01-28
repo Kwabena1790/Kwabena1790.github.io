@@ -372,12 +372,21 @@ function updateInfoBox(playerData) {
                 const infoColumns = ['name', 'Team', 'ht', 'wt', 'draft_age', 'ras', 'draft_pick', 'hs', 'year', 'breakout_age'];
 
 infoColumns.forEach(column => {
-    // Modify the column name if it is 'wt'
-    const columnName = column === 'wt' ? 'Weight' : (column === 'ht' ? 'Height' : column);
-    
+    let columnName;
+
+    // Check if the column is 'wt' and set the appropriate name
+    if (column === 'wt') {
+        columnName = 'Weight';
+    } else if (column === 'ht') {
+        columnName = 'Height';
+    } else {
+        columnName = column;
+    }
+
     const value = playerData[column];
     infoBox.innerHTML += `<li><strong>${columnName}:</strong> ${value}</li>`;
 });
+
 
 
             
