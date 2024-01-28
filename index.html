@@ -369,13 +369,16 @@ function updateInfoBox(playerData) {
                 infoBox.innerHTML = '<h2>Information</h2><ul>';
                 percentileTable.innerHTML = '';
 
-        const infoColumns = ['name', 'Team', 'ht', 'wt', 'draft_age', 'ras', 'draft_pick', 'hs', 'year','breakout_age'];
+                const infoColumns = ['name', 'Team', 'ht', 'wt', 'draft_age', 'ras', 'draft_pick', 'hs', 'year', 'breakout_age'];
 
-                infoColumns.forEach(column => {
-        const columnName = column === 'ht' ? 'Height' : column;
-        const value = playerData[column];
-                infoBox.innerHTML += `<li><strong>${columnName}:</strong> ${value}</li>`;
-            });
+infoColumns.forEach(column => {
+    // Modify the column name if it is 'wt'
+    const columnName = column === 'wt' ? 'Weight' : (column === 'ht' ? 'Height' : column);
+    
+    const value = playerData[column];
+    infoBox.innerHTML += `<li><strong>${columnName}:</strong> ${value}</li>`;
+});
+
 
             
                 infoBox.innerHTML += '</ul>';
